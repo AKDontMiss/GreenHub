@@ -173,10 +173,10 @@ function ClaimSection() {
   useRevealOnScroll(ref)
 
   const steps = [
-    { n: '01', title: 'Accept the repo transfer', body: 'On your birthday, you\'ll get a GitHub notification. Accept the transfer to take ownership of this codebase.' },
-    { n: '02', title: 'Explore & customize', body: 'The entire repo is yours. Change the content, redesign it, break it, rebuild it — it\'s your space now.' },
-    { n: '03', title: 'The QR code stays valid', body: 'I\'ll update the Vercel gateway to point to your new GitHub Pages URL. The nameplate on your desk never stops working.' },
-    { n: '04', title: 'Make it yours', body: 'Portfolio, project hub, personal page, chaos experiment — whatever you decide to build here, it starts from this moment.' },
+    { n: '01', title: 'Accept the transfer', body: 'On your birthday, accept the GitHub transfer to take ownership of this repo.' },
+    { n: '02', title: 'The Quick Redirect', body: 'Want to skip this intro? Edit public/config.json and set "showBirthdayIntro" to false to turn this nameplate into an instant link to your LinkedIn or Portfolio.' },
+    { n: '03', title: 'The QR stays valid', body: 'I will update the Vercel bridge to point to your new URL. Your physical nameplate will never break.' },
+    { n: '04', title: 'Make it yours', body: 'The code is yours. Change the animations, add new sections, or rebuild it entirely. All Systems Green.' },
   ]
 
   return (
