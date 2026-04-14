@@ -166,7 +166,7 @@ function MessageSection({ config }) {
             CONTINUE TO DESTINATION →
         </a>
 
-        <p style={s.messageSignoff}>— Gotta chnage that birth date cuz it's a joke</p>
+        <p style={s.messageSignoff}>— Gotta change that birthdate cuz it's a joke</p>
       </div>
     </section>
   )
