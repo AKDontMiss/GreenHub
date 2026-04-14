@@ -115,7 +115,7 @@ function ArchitectureSection() {
         <ArchArrow label="QR scan" />
         <ArchNode icon="⬡" label="Vercel Gateway" sub="Private repo. Hidden redirect layer." />
         <ArchArrow label="302 redirect" />
-        <ArchNode icon="◈" label="This Repo" sub="github.com/you/emre-gateway" glow />
+        <ArchNode icon="◈" label="This Repo" sub="github.com/you/GreenHub" glow />
       </div>
 
       <div style={s.archExplainer}>
@@ -207,7 +207,7 @@ function Footer() {
     <footer style={s.footer}>
       <div style={s.footerDivider} />
       <p style={s.footerText}>
-        <span style={s.footerGreen}>EMRE_GATEWAY</span>
+        <span style={s.footerGreen}>GreenHub</span>
         {' '}·{' '}
         Built with intent. Gifted with care.
       </p>

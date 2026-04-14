@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 // ─── Terminal line definitions ───────────────────────────────────────────────
 // Each entry: { text, delay (ms from start), className }
 const BOOT_LINES = [
-  { text: 'EMRE_GATEWAY OS  v1.0.0', delay: 200,  cls: 'line-header' },
+  { text: 'GreenHub OS  v1.0.0', delay: 200,  cls: 'line-header' },
   { text: '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', delay: 400,  cls: 'line-divider' },
   { text: '',                                                       delay: 500,  cls: '' },
   { text: 'Booting kernel...',                                      delay: 700,  cls: 'line-normal' },
@@ -88,7 +88,7 @@ export default function BootSequence({ onComplete }) {
           <span style={styles.dot('#ff5f57')} />
           <span style={styles.dot('#febc2e')} />
           <span style={styles.dot('#28c840')} />
-          <span style={styles.terminalTitle}>emre_gateway — bash</span>
+          <span style={styles.terminalTitle}>GreenHub — bash</span>
         </div>
 
         <div style={styles.terminalBody}>
