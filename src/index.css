@@ -1,0 +1,143 @@
+/* ─── CSS Variables ─────────────────────────────────────────────────────── */
+:root {
+  --bg:           #030803;
+  --bg-2:         #071007;
+  --bg-3:         #0c1a0c;
+  --green-neon:   #39ff14;
+  --green-bright: #22d64a;
+  --green-mid:    #16a832;
+  --green-dim:    #0d5c1e;
+  --green-muted:  #1a3d1a;
+  --green-text:   #a8d8a8;
+  --green-faint:  #334d33;
+  --text:         #d4edda;
+  --text-dim:     #7aab7a;
+  --text-ghost:   #3d6b3d;
+  --glow-sm:      0 0 8px rgba(57, 255, 20, 0.5);
+  --glow-md:      0 0 20px rgba(57, 255, 20, 0.4), 0 0 40px rgba(57, 255, 20, 0.15);
+  --glow-lg:      0 0 30px rgba(57, 255, 20, 0.6), 0 0 80px rgba(57, 255, 20, 0.25), 0 0 120px rgba(57, 255, 20, 0.08);
+  --border:       rgba(57, 255, 20, 0.18);
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scanline Overlay ───────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green-mid); }
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes flicker {
+  0%  { opacity: 1; }
+  2%  { opacity: 0.85; }
+  4%  { opacity: 1; }
+  40% { opacity: 1; }
+  42% { opacity: 0.9; }
+  44% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: var(--glow-md); }
+  50%       { text-shadow: var(--glow-lg); }
+}
+
+@keyframes scanDown {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes terminalReveal {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bigReveal {
+  0%   { opacity: 0; letter-spacing: 0.6em; filter: blur(8px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; letter-spacing: 0.05em; filter: blur(0); }
+}
+
+@keyframes nodeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes gridFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Utility ────────────────────────────────────────────────────────────── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
