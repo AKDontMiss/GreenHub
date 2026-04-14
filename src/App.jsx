@@ -7,7 +7,7 @@ export default function App() {
   const [config, setConfig] = useState(null)
 
   useEffect(() => {
-    fetch('/GreenHub/config.json') 
+    fetch('./config.json') 
       .then((res) => res.json())
       .then((data) => {
         if (data.showBirthdayIntro === false) {
@@ -16,14 +16,17 @@ export default function App() {
           setConfig(data);
         }
       })
-      .catch((err) => console.error("Config missing:", err));
+      .catch((err) => {
+        console.error("Config missing or error:", err);
+        setConfig({ showBirthdayIntro: true, redirectUrl: '#' });
+      });
   }, []);
 
   const handleBootComplete = useCallback(() => {
     setBooted(true)
   }, [])
 
-  if (!config && !booted) return null;
+  if (!config) return null;
 
   return (
     <>
