@@ -134,7 +134,7 @@ function ArchitectureSection() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-function MessageSection() {
+function MessageSection({ config }) {
   const ref = useRef()
   useRevealOnScroll(ref)
 
@@ -145,10 +145,9 @@ function MessageSection() {
       <div style={s.messageCard}>
         <div style={s.messageBorder} aria-hidden />
         <p style={s.messageFrom}>From: <span style={s.messageFromName}>AK</span></p>
-        <p style={s.messageFrom}>To: <span style={s.messageFromName}>Green</span></p>
+        <p style={s.messageFrom}>To: <span style={s.messageFromName}>Emre Green</span></p>
         <div style={s.messageDivider} />
 
-        {/* ── THE MESSAGE ── */}
         <p style={s.messageBody}>
           Happy Birthday, Emre! Homeboy is getting old ye. Figured standard paper birthday cards are a bit obsolete (and honestly, not helical enough), so I built you a permanent digital gateway instead. 
         </p>
@@ -157,10 +156,16 @@ function MessageSection() {
         </p>
         <p style={s.messageBody}>
           Life is Good!
-        </p>
-        {/* ───────────────── */}
+       </p>
+        
+        <p style={s.messageBody}>All Systems Green. 🟢</p>
 
         <div style={s.messageDivider} />
+        
+        <a href={config?.redirectUrl || "#"} className="btn" style={s.scrollCta}>
+            CONTINUE TO DESTINATION →
+        </a>
+
         <p style={s.messageSignoff}>— Gotta chnage that birth date cuz it's a joke</p>
       </div>
     </section>
@@ -253,13 +258,13 @@ function ArchArrow({ label }) {
 }
 
 // ─── Main export ──────────────────────────────────────────────────────────────
-export default function MainExperience() {
+export default function MainExperience({ config }) {
   return (
     <div style={s.wrapper}>
       <HeroSection />
       <GiftSection />
       <ArchitectureSection />
-      <MessageSection />
+      <MessageSection config={config} />
       <ClaimSection />
       <Footer />
     </div>
